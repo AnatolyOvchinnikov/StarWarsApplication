@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+                name="presenter"
+                type="com.app.starwars.presentation.profile.UserDetailsPresenter"/>
+    </data>
+    <android.support.v4.widget.SwipeRefreshLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/swipeView"
+            tools:context=".ui.profile.UserDetailsFragment">
+
+        <FrameLayout android:layout_width="match_parent"
+                     android:layout_height="wrap_content">
+
+
+            <android.support.design.card.MaterialCardView
+                    android:id="@+id/card_view"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginEnd="32dp"
+                    app:cardElevation="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                <android.support.constraint.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:paddingTop="12dp"
+                        android:paddingBottom="12dp"
+                        android:paddingStart="32dp"
+                        android:paddingEnd="32dp"
+                        android:theme="@style/UserDetailsTextStyle">
+
+                    <TextView
+                            android:id="@+id/name"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:textSize="24sp"
+                            android:textColor="@color/colorPrimary"
+                            android:text="@{presenter.userObservable.name}"
+                            tools:text="Luke Skywalker" app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
+                            android:fontFamily="@font/black_ops_one"/>
+
+                    <TextView android:layout_width="wrap_content"
+                              android:layout_height="wrap_content"
+                              android:id="@+id/user_birth_year"
+                              android:text="@string/birth_year"
+                              android:layout_marginTop="12dp"
+                              app:layout_constraintStart_toStartOf="parent"
+                              app:layout_constraintTop_toBottomOf="@+id/name"/>
+
+                    <TextView android:layout_width="wrap_content"
+                              android:layout_height="wrap_content"
+                              android:id="@+id/user_birth_year_value"
+                              android:text="@{presenter.userObservable.birth_year}"
+                              tools:text="1234" app:layout_constraintEnd_toEndOf="parent"
+                              app:layout_constraintTop_toTopOf="@+id/user_birth_year"
+                              app:layout_constraintBottom_toBottomOf="@+id/user_birth_year"/>
+
+                    <TextView android:layout_width="wrap_content"
+                              android:layout_height="wrap_content"
+                              android:id="@+id/user_gender"
+                              android:layout_marginTop="12dp"
+                              android:text="@string/gender" app:layout_constraintTop_toBottomOf="@+id/user_birth_year"
+                              app:layout_constraintStart_toStartOf="parent"/>
+
+                    <TextView android:layout_width="wrap_content"
+                              android:layout_height="wrap_content"
+                              android:id="@+id/user_gender_value"
+                              android:text="@{presenter.userObservable.gender}"
+                              tools:text="Male" app:layout_constraintEnd_toEndOf="parent"
+                              app:layout_constraintTop_toTopOf="@+id/user_gender"
+                              app:layout_constraintBottom_toBottomOf="@+id/user_gender"/>
+
+
+                    <TextView android:layout_width="wrap_content"
+                              android:layout_height="wrap_content"
+                              android:id="@+id/user_eye_color"
+                              android:layout_marginTop="12dp"
+                              android:text="@string/eye_color"
+                              app:layout_constraintTop_toBottomOf="@+id/user_gender"
+                              app:layout_constraintStart_toStartOf="parent"/>
+
+                    <TextView android:layout_width="wrap_content"
+                              android:layout_height="wrap_content"
+                              android:id="@+id/user_eye_color_value"
+                              tools:text="Green"
+                              android:text="@{presenter.userObservable.eye_color}"
+                              app:layout_constraintTop_toTopOf="@+id/user_eye_color"
+                              app:layout_constraintBottom_toBottomOf="@+id/user_eye_color"
+                              app:layout_constraintEnd_toEndOf="parent"/>
+
+
+                    <TextView android:layout_width="wrap_content"
+                              android:layout_height="wrap_content"
+                              android:id="@+id/user_hair_color"
+                              android:text="@string/hair_color"
+                              android:layout_marginTop="12dp"
+                              app:layout_constraintStart_toStartOf="parent"
+                              app:layout_constraintTop_toBottomOf="@+id/user_eye_color"/>
+
+                    <TextView android:layout_width="wrap_content"
+                              android:layout_height="wrap_content"
+                              android:id="@+id/user_hair_color_value"
+                              tools:text="Black"
+                              android:text="@{presenter.userObservable.hair_color}"
+                              app:layout_constraintEnd_toEndOf="parent"
+                              app:layout_constraintBottom_toBottomOf="@+id/user_hair_color"
+                              app:layout_constraintTop_toTopOf="@+id/user_hair_color"/>
+
+
+                    <TextView android:layout_width="wrap_content"
+                              android:layout_height="wrap_content"
+                              android:id="@+id/user_height"
+                              android:text="@string/height"
+                              android:layout_marginTop="12dp"
+                              app:layout_constraintStart_toStartOf="parent"
+                              app:layout_constraintTop_toBottomOf="@+id/user_hair_color"/>
+
+                    <TextView android:layout_width="wrap_content"
+                              android:layout_height="wrap_content"
+                              android:id="@+id/user_height_value"
+                              tools:text="180"
+                              android:text="@{presenter.userObservable.height}"
+                              app:layout_constraintTop_toTopOf="@+id/user_height"
+                              app:layout_constraintBottom_toBottomOf="@+id/user_height"
+                              app:layout_constraintEnd_toEndOf="parent"/>
+
+
+                    <TextView android:layout_width="wrap_content"
+                              android:layout_height="wrap_content"
+                              android:id="@+id/user_mass"
+                              android:text="@string/mass"
+                              android:layout_marginTop="12dp"
+                              app:layout_constraintStart_toStartOf="parent"
+                              app:layout_constraintTop_toBottomOf="@+id/user_height"/>
+
+                    <TextView android:layout_width="wrap_content"
+                              android:layout_height="wrap_content"
+                              android:id="@+id/user_mass_value"
+                              tools:text="90"
+                              android:text="@{presenter.userObservable.mass}"
+                              app:layout_constraintTop_toTopOf="@+id/user_mass"
+                              app:layout_constraintBottom_toBottomOf="@+id/user_mass"
+                              app:layout_constraintEnd_toEndOf="parent"/>
+
+
+                    <TextView android:layout_width="wrap_content"
+                              android:layout_height="wrap_content"
+                              android:id="@+id/user_skin_color"
+                              android:text="@string/skin_color"
+                              android:layout_marginTop="12dp"
+                              app:layout_constraintTop_toBottomOf="@+id/user_mass"
+                              app:layout_constraintStart_toStartOf="parent"/>
+
+                    <TextView android:layout_width="wrap_content"
+                              android:layout_height="wrap_content"
+                              android:id="@+id/user_skin_color_value"
+                              tools:text="Fair"
+                              android:text="@{presenter.userObservable.skin_color}"
+                              app:layout_constraintTop_toTopOf="@+id/user_skin_color"
+                              app:layout_constraintBottom_toBottomOf="@+id/user_skin_color"
+                              app:layout_constraintEnd_toEndOf="parent"/>
+
+
+                </android.support.constraint.ConstraintLayout>
+
+
+            </android.support.design.card.MaterialCardView>
+
+        </FrameLayout>
+
+
+    </android.support.v4.widget.SwipeRefreshLayout>
+</layout>

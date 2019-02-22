@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/main_navigation" app:startDestination="@id/personsListFragment">
+
+    <fragment android:id="@+id/personsListFragment" android:name="com.app.starwars.ui.lists.PersonsListFragment"
+              android:label="Persons">
+        <action android:id="@+id/action_personsListFragment_to_userDetailsFragment"
+                app:destination="@id/userDetailsFragment"/>
+    </fragment>
+    <fragment android:id="@+id/userDetailsFragment" android:name="com.app.starwars.ui.profile.UserDetailsFragment"
+              android:label="Person Details">
+        <argument android:name="person" app:argType="com.app.starwars.entity.User"/>
+    </fragment>
+</navigation>
